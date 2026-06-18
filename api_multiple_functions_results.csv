@@ -1,0 +1,5 @@
+name,mode,chosen_D,bond_dimensions,bond_qubits,total_circuit_qubits,fidelity,bond_leakage,cx_gates,u_gates,depth,size
+smooth_sine,amplitude,3,"[1, 2, 3, 3, 3, 3, 2]",2,10,0.9999163147430374,0.0,123,250,253,373
+gaussian,probability,3,"[2, 3, 3, 3, 3, 3, 2]",2,10,0.9998942802190433,0.0,133,267,273,400
+square_wave,probability,2,"[2, 2, 2, 2, 2, 2, 2]",1,9,1.0000000000000004,0.0,21,58,50,79
+top_hat,probability,3,"[2, 3, 3, 3, 3, 3, 2]",2,10,1.0000000000000009,0.0,132,265,270,397

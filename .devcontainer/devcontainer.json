@@ -1,0 +1,33 @@
+// For format details, see https://aka.ms/devcontainer.json.
+{
+  "name": "adaptive-mps-initializer",
+
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "EditorConfig.EditorConfig",
+        "charliermarsh.ruff",
+        "tamasfe.even-better-toml",
+        "github.vscode-github-actions",
+        "ms-azuretools.vscode-docker",
+        "streetsidesoftware.code-spell-checker",
+        "esbenp.prettier-vscode",
+        "Gruntfuggly.todo-tree",
+        "ms-toolsai.jupyter",
+        "redhat.vscode-yaml",
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ]
+    }
+  },
+
+  "postCreateCommand": "uv sync || true"
+}
