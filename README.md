@@ -1,29 +1,47 @@
 # Adaptive MPS Initializer
 
-Adaptive MPS Initializer is a research package for preparing quantum states from arbitrary 1D functions using matrix product states.
+This package prepares quantum states from 1D functions or statevectors using adaptive Matrix Product State compression.
 
-The package can:
+It builds Qiskit circuits and automatically chooses the smallest bond dimension needed for a target fidelity.
 
-- sample an arbitrary function
-- convert it into a quantum statevector
-- decompose the statevector into MPS tensors
-- find the smallest bond dimension for a target fidelity
-- build a Qiskit circuit from the compressed MPS
-- compare MPS circuits with dense Qiskit StatePreparation
-- validate MPS tensors with Quimb
+## Installation
 
----
+```bash
+pip install git+https://github.com/aizzen3/adaptive-mps-initializer.git
+```
 
-## Main idea
+## Usage
 
-Instead of preparing a full dense statevector directly, we use the structure of the state.
+```python
+import numpy as np
+from mps_initializer import prepare_from_function
 
-Workflow:
+func = lambda x: np.sin(2 * np.pi * x)
 
-```text
-function f(x)
-    -> sampled values
-    -> quantum statevector
-    -> MPS decomposition
-    -> adaptive compression
-    -> Qiskit circuit
+result = prepare_from_function(
+    func,
+    n_qubits=8,
+    mode="amplitude",
+    fidelity_threshold=0.999,
+)
+
+circuit = result["circuit"]
+report = result["report"]
+
+print(report["chosen_max_bond_dim"])
+print(report["circuit_preparation_fidelity"])
+
+circuit.draw("mpl")
+```
+
+## Statevector input
+
+```python
+from mps_initializer import prepare_from_statevector
+
+result = prepare_from_statevector(psi, fidelity_threshold=0.999)
+```
+
+## Status
+
+Research prototype. API may change.
