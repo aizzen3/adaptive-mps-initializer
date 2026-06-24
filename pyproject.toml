@@ -13,13 +13,9 @@ authors = [
 ]
 dependencies = [
     "numpy",
+    "scipy",
     "qiskit",
     "quimb",
-]
-
-[project.optional-dependencies]
-dev = [
-    "pytest",
     "matplotlib",
 ]
 

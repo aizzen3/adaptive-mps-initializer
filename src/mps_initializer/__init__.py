@@ -1,8 +1,5 @@
 """
-Adaptive MPS Initializer
-
-User-friendly API for preparing quantum states from functions or statevectors
-using adaptive matrix product state compression.
+Adaptive MPS Initializer.
 """
 
 from .api import (
@@ -16,7 +13,6 @@ from .report import analyze_statevector
 from .state import QuantumState
 
 
-# Short friendly aliases
 prepare_from_function = adaptive_mps_from_function
 prepare_from_statevector = adaptive_mps_from_statevector
 
