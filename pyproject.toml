@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "adaptive-mps-initializer"
-version = "0.1.0"
+version = "0.1.1"
 description = "Adaptive and layered MPS tools for quantum state preparation with Qiskit"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -20,7 +20,18 @@ dependencies = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = [
+only-include = [
     "src/mps_initializer",
     "src/mps_layered_initializer",
+]
+sources = [
+    "src",
+]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/mps_initializer",
+    "src/mps_layered_initializer",
+    "README.md",
+    "pyproject.toml",
 ]
