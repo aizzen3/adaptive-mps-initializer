@@ -1,12 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
-name = "workspace"
+name = "adaptive-mps-initializer"
 version = "0.1.0"
-description = "Add your description here"
+description = "Adaptive and layered MPS tools for quantum state preparation with Qiskit"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.10"
+authors = [
+    { name = "Ashish Nandan" }
+]
 dependencies = [
-    "matplotlib>=3.11.0",
-    "numpy>=2.4.6",
-    "qiskit>=2.4.2",
-    "quimb>=1.14.0",
+    "numpy",
+    "qiskit",
+    "quimb",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "matplotlib",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = [
+    "src/mps_initializer",
+    "src/mps_layered_initializer",
 ]
